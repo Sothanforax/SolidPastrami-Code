@@ -43,8 +43,8 @@ void pre_auton()
 
 task autonomous()
 {
-displayLCDCenteredString(0,"This is a placeholder");
-displayLCDCenteredString(1,"I have no Auton");
+	displayLCDCenteredString(0,"This is a placeholder");
+	displayLCDCenteredString(1,"I have no Auton");
 }
 
 /*---------------------------------------------------------------------------*/
@@ -60,6 +60,7 @@ displayLCDCenteredString(1,"I have no Auton");
 task usercontrol()
 {
 	// User control code here, inside the loop
+	haminit();
 	clrlcd();
 	while (true)
 	{

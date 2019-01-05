@@ -25,10 +25,12 @@ void batlev(bool imdt)
 	if(imdt==false)
 	{
 		displayLCDNumber(1,1,nAvgBatteryLevel);
+		displayLCDString(1,6,"[AVG]");
 	}
 	else
 	{
 		displayLCDNumber(1,1,nImmediateBatteryLevel);
+		displayLCDString(1,6,"[IMDT]");
 	}
 }
 #endif
