@@ -1,4 +1,5 @@
 #pragma config(I2C_Usage, I2C1, i2cSensors)
+#pragma config(Sensor, dgtl12, JMPR,           sensorDigitalIn)
 #pragma config(Sensor, I2C_3,  ,               sensorQuadEncoderOnI2CPort,    , AutoAssign )
 #pragma config(Motor,  port1,            ,             tmotorVex393_HBridge, openLoop, encoderPort, I2C_3)
 #pragma config(Motor,  port2,           FL,            tmotorVex393_MC29, openLoop, driveLeft)
@@ -43,8 +44,8 @@ void pre_auton()
 
 task autonomous()
 {
-	displayLCDCenteredString(0,"This is a placeholder");
-	displayLCDCenteredString(1,"I have no Auton");
+	displayLCDCenteredString(0,"This is a");
+	displayLCDCenteredString(1,"PLACEHOLDER");
 }
 
 /*---------------------------------------------------------------------------*/
@@ -82,5 +83,5 @@ task usercontrol()
 			motor[CL] = 0;
 			motor[CR] = 0;
 		}
+		}
 	}
-}

@@ -1,10 +1,12 @@
 #pragma systemFile
+#pragma DebuggerWindows("VexLcd")
 typedef enum lcdbuttons
 {
 	lml =1,
 	lmr =4,
 	lmc =2,
-}
+}lcdbuttons;
+bool jmpst;
 /*HAM FUNCTIONS CONTAINED BELOW, BE CAREFUL WITH MODIFICATIONS*/
 #ifndef _HAMINIT_H_GUARD
 #define _HAMINIT_H_GUARD
@@ -54,9 +56,11 @@ void rstate()
 	{
 		displayLCDCenteredString(0,"vexnet:inactive");
 	}
-	if (bIfiRobotDisabled == true)
-	{
-		displayLCDCenteredString(1,"robot disabled");
-	}
+}
+#endif
+#ifndef _MRSE_H_GUARD
+#define _MRSE_H_GUARD
+void mrse()
+{
 }
 #endif
