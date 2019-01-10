@@ -6,18 +6,23 @@ typedef enum lcdbuttons
 	lmr =4,
 	lmc =2,
 }lcdbuttons;
-bool jmpst;
+bool lcswi;
 /*HAM FUNCTIONS CONTAINED BELOW, BE CAREFUL WITH MODIFICATIONS*/
 #ifndef _HAMINIT_H_GUARD
 #define _HAMINIT_H_GUARD
 void haminit()
 {
+	lcswi=true;
 	bLCDBacklight=true;
 	displayLCDString(0,0,"Ham Init v0.0.2");
-	displayLCDString(1,0,"BNSLib by JMarple v0.15.0");
+	displayLCDString(1,0,"BNSLib by JMarple");
 	wait1Msec(900);
 	clearLCDLine(0);
 	clearLCDLine(1);
+	clearDebugStream();
+	writeDebugStream("HAM Debug Output Started");
+	writeDebugStreamLine("\n//TODO Add helpful output...");
+	writeDebugStream("\nWait... crunching numbers");
 }
 #endif
 #ifndef _BATLEV_H_GUARD
@@ -48,7 +53,17 @@ void clrlcd()
 #define _RSTATE_H_GUARD
 void rstate()
 {
-	if (bVEXNETActive == true)
+	wait1Msec(900);
+	writeDebugStream("\nMain battery voltage:%d",nAvgBatteryLevel);
+	writeDebugStream("\nBackup battery voltage:%d",BackupBatteryLevel);
+	if (lcswi == false)
+	{
+ displayLCDString(0,1,"Manual Exception");
+ setException();
+}
+else
+{
+		if (bVEXNETActive == true)
 	{
 		displayLCDCenteredString(0,"vexnet:active");
 	}
@@ -57,10 +72,12 @@ void rstate()
 		displayLCDCenteredString(0,"vexnet:inactive");
 	}
 }
+}
 #endif
-#ifndef _MRSE_H_GUARD
-#define _MRSE_H_GUARD
-void mrse()
+#ifndef _INITUART_H_GUARD
+#define _INITUART_H_GUARD
+void inituart()
 {
+
 }
 #endif
