@@ -1,5 +1,6 @@
 #pragma systemFile
 #pragma DebuggerWindows("VexLcd")
+#include "BNSlib.h"
 typedef enum lcdbuttons
 {
 	lml =1,
@@ -21,7 +22,7 @@ void haminit()
 	clearLCDLine(1);
 	clearDebugStream();
 	writeDebugStream("HAM Debug Output Started");
-	writeDebugStreamLine("\n//TODO Add helpful output...");
+	writeDebugStreamLine("\n[Add actually useful data output here]");
 	writeDebugStream("\nWait... crunching numbers");
 }
 #endif
@@ -58,8 +59,7 @@ void rstate()
 	writeDebugStream("\nBackup battery voltage:%d",BackupBatteryLevel);
 	if (lcswi == false)
 	{
- displayLCDString(0,1,"Manual Exception");
- setException();
+ displayLCDString(0,1,"Woo placeholders!");
 }
 else
 {
@@ -78,6 +78,7 @@ else
 #define _INITUART_H_GUARD
 void inituart()
 {
-
+setBaudRate(UART0,9600);
+sendChar(UART0,"T");
 }
 #endif
